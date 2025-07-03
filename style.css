@@ -1,0 +1,122 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: #e0e0e0;
+  color: #000000;
+}
+
+/* Header Buttons (Pause/Resume, Dark/Light Toggle) */
+header {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+body.light-mode header {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+header button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+body.light-mode header button {
+  background-color: #ddd;
+  color: black;
+}
+
+header button:hover {
+  opacity: 0.8;
+}
+
+/* Speed Control Sliders */
+#controls {
+  position: fixed;
+  top: 80px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 75vh;
+  overflow-y: auto;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+body.light-mode #controls {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+#controls label {
+  display: block;
+  font-size: 13px;
+  margin-top: 10px;
+  color: white;
+}
+
+body.light-mode #controls label {
+  color: black;
+}
+
+#controls input[type="range"] {
+  width: 150px;
+  margin-top: 4px;
+}
+
+/* Tooltip Planet Labels */
+#tooltip {
+  position: fixed;
+  pointer-events: none;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  border-radius: 5px;
+  display: none;
+  font-size: 13px;
+  z-index: 20;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+body.light-mode #tooltip {
+  background: rgba(30, 30, 30, 0.85);
+  color: white;
+}
+
+/* Canvas full screen */
+#canvas-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Optional: Fade-in effect for planets appearance */
+canvas {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
